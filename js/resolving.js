@@ -5,6 +5,7 @@ let arr = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0
 let arr1 = [[0, 0, 3, 0, 0, 0, 9, 0, 1], [0, 0, 0, 0, 0, 7, 0, 0, 3], [0, 0, 0, 2, 0, 8, 0, 0, 5], [0, 4, 0, 5, 0, 0, 0, 0, 0], [0, 7, 0, 0, 0, 0, 6, 0, 8], [0, 0, 0, 7, 0, 0, 0, 9, 0], [0, 0, 0, 0, 0, 0, 7, 8, 4], [2, 1, 0, 0, 0, 0, 0, 0, 0], [0, 8, 0, 0, 9, 0, 0, 0, 0]]
 let Cube;// = InitCube(9, 9, 10, 1);
 let projection = arr;
+let PreviousZeroes;
 
 function Analyse() {
     var i, j, xn, yn;
@@ -32,19 +33,15 @@ function Analyse() {
 }
 
 function CalculateProjection() {
-    // Intialization of projection array
     for (x = 0; x < 9; x++)
-        for (y = 0; y < 9; y++)
-
-            projection[x][y] = 0;
-
-    for (x = 0; x < 9; x++)
-        for (y = 0; y < 9; y++)
+        for (y = 0; y < 9; y++) {
+            projection[x][y] = 0; // Intialization of projection array
             for (z = 1; z < 10; z++) {
                 if (Cube[x][y][z] == 1) {
                     projection[x][y]++;
                 }
             }
+        }
     // console.log('Projection');
     // console.log(projection);
 }
@@ -174,11 +171,11 @@ function ThreeByThreeProjection() {
     }
 }
 
-function PrintCubeSlise() {
+function PrintCubeSlise(taso) {
     let mySlice = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
     for (let x = 0; x < 9; x++) {
         for (let y = 0; y < 9; y++) {
-            mySlice[x][y] = Cube[x][y][5];
+            mySlice[x][y] = Cube[x][y][taso];
         }
     }
     console.log(mySlice);
@@ -192,6 +189,17 @@ function CubeClear(){
             }
         }
     }
+}
+
+function HowManyZeroes(){
+    let Zeroes=0;
+    for (let x=0; x<9; x++){
+        for (let y=0; y<9; y++){
+            if (arr1[x][y]==0)
+                Zeroes++;
+        }
+    }
+    return Zeroes;
 }
 
 function solveFromArray() {
@@ -212,21 +220,22 @@ function solveFromArray() {
             }
         }
     }
-    //Cube = InitCube(9, 9, 10, 1);
-    for (let iteration = 0; iteration < 12; iteration++) {
+    CurrentZeroes = HowManyZeroes();
+    let Iter = 0;
+    do {
+        PreviousZeroes = CurrentZeroes;
         Cube = InitCube(9, 9, 10, 1);
-        //CubeClear();
         Analyse();
         CalculateProjection();
         HorisontalProjection();
         VerticalProjection();
         ThreeByThreeProjection();
         NewValueFinding();
-        console.log(projection);
-        //PrintCubeSlise();
-        //console.log(Boolean(arr1[0][0]));
-        //setTimeout(1000);
+        CurrentZeroes = HowManyZeroes();
+        Iter++;
     }
+    while (PreviousZeroes != CurrentZeroes);
+    console.log(Iter);
 }
 
 
