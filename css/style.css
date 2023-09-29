@@ -11,9 +11,9 @@
     border: 2px solid #eee;
   } */
 
-  * { box-sizing: border-box; }
-table { margin: 10px; }
-tr:first-child td {
+  /* * { box-sizing: border-box; }
+table { margin: 10px; } */
+/* tr:first-child td {
 	border-top-color: black;
 }
 tr:nth-child(3n) td {
@@ -29,7 +29,7 @@ td:first-child {
 }
 td:nth-child(3n) {
 	border-right-color: black;
-}
+} */
 input {
 	padding: 0;
 	text-align: center;
