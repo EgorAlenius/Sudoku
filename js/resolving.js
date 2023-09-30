@@ -4,9 +4,9 @@ let arr = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0
 //let arr1 = [[0, 0, 0, 0, 0, 5, 6, 0, 2], [8, 0, 0, 2, 0, 6, 7, 9, 0], [0, 2, 0, 9, 0, 0, 1, 0, 0], [0, 0, 6, 0, 2, 0, 0, 1, 0], [0, 5, 0, 0, 7, 0, 0, 8, 0], [0, 3, 0, 0, 5, 0, 2, 0, 0], [0, 0, 8, 0, 0, 2, 0, 6, 0], [0, 1, 2, 5, 0, 8, 0, 0, 7], [9, 0, 3, 1, 0, 0, 0, 0, 0]]
 //let arr1 = [[0, 0, 3, 0, 0, 0, 9, 0, 1], [0, 0, 0, 0, 0, 7, 0, 0, 3], [0, 0, 0, 2, 0, 8, 0, 0, 5], [0, 4, 0, 5, 0, 0, 0, 0, 0], [0, 7, 0, 0, 0, 0, 6, 0, 8], [0, 0, 0, 7, 0, 0, 0, 9, 0], [0, 0, 0, 0, 0, 0, 7, 8, 4], [2, 1, 0, 0, 0, 0, 0, 0, 0], [0, 8, 0, 0, 9, 0, 0, 0, 0]]
 //let arr1 = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
-let arr1 = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
+//let arr1 = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
 let Cube;
-let projection = arr;
+let projection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 let PreviousZeroes;
 
 function PrintProjection(){
@@ -19,7 +19,7 @@ function Analyse() {
     var i, j, xn, yn;
     for (x = 0; x < 9; x++) {
         for (y = 0; y < 9; y++) {
-            lev = parseInt(arr1[x][y]);
+            lev = parseInt(arr[x][y]);
             if (lev > 0) { // vertical and horizontal lines to 0
                 for (z = 0; z < 9; z++) {
                     Cube[z][y][lev] = 0;
@@ -60,9 +60,9 @@ function InitCube(xmax, ymax, zmax, def) {
     for (r = [], x = 0; x < xmax; x++) {
         for (r[x] = [], y = 0; y < ymax; y++) {
             for (r[x][y] = [], z = 1; z < zmax; z++) {
-                if (arr1[x][y] != 0) {
+                if (arr[x][y] != 0) {
                     r[x][y][z] = 0;
-                    if (arr1[x][y] == z)
+                    if (arr[x][y] == z)
                         r[x][y][z] = 1;
                 }
                 else r[x][y][z] = def;
@@ -94,12 +94,12 @@ function InitCube(xmax, ymax, zmax, def) {
 function NewValueFinding() {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-            if ((projection[i][j] == 1) & (arr1[i][j] == 0)) {
+            if ((projection[i][j] == 1) & (arr[i][j] == 0)) {
                 let k = 0;
                 while (Cube[i][j][k] != 1) {
                     k++;
                 }
-                arr1[i][j] = k;
+                arr[i][j] = k;
                 table.rows[i].cells[j].textContent = k;
                 //table.rows[i].cells[j].style.color = "gray";
                 //console.log(k);
@@ -120,8 +120,8 @@ function HorisontalProjection() {
                     HorProjection[x][z - 1]++;
                 }
             }
-            if ((HorProjection[x][z - 1] == 1) & (arr1[x][last] != z)) {
-                arr1[x][last] = z;
+            if ((HorProjection[x][z - 1] == 1) & (arr[x][last] != z)) {
+                arr[x][last] = z;
                 //console.log(x, last, z);
                 table.rows[x].cells[last].textContent = String(z);
             }
@@ -144,8 +144,8 @@ function VerticalProjection() {
                 }
             }
             //console.log(last, y, VerProjection[y][z - 1], arr1[last][y]);
-            if ((VerProjection[y][z - 1] == 1) & (arr1[last][y] != z)) {
-                arr1[last][y] = z;
+            if ((VerProjection[y][z - 1] == 1) & (arr[last][y] != z)) {
+                arr[last][y] = z;
                 //console.log(last, y, z);
                 table.rows[last].cells[y].textContent = String(z);
             }
@@ -171,7 +171,7 @@ function ThreeByThreeProjection() {
                     }
                 }
                 if(summ==1){
-                    arr1[lastX][lastY] = z;
+                    arr[lastX][lastY] = z;
                     table.rows[lastX].cells[lastY].textContent = String(z);
                 } 
             }
@@ -203,7 +203,7 @@ function HowManyZeroes(){
     let Zeroes=0;
     for (let x=0; x<9; x++){
         for (let y=0; y<9; y++){
-            if (arr1[x][y]==0)
+            if (arr[x][y]==0)
                 Zeroes++;
         }
     }
@@ -214,22 +214,29 @@ function solveFromArray() {
     console.log("Solve is pressed");
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
-
             // delete inputs from table
             parent = table.rows[i].cells[j];
             child = parent.querySelector('input');
-            if (child!=null)
+            //console.log(child.value);
+            //arr1[i][j]=child.text;//table.rows[i].cells[j].textContent;
+            if (child.value!=""){
+                arr[i][j]=parseInt(child.value);
                 child.remove();
-
-            // read numbers from array and write into table
-            if (arr1[i][j] > 0) {
-                table.rows[i].cells[j].textContent = arr1[i][j];
+                table.rows[i].cells[j].textContent = arr[i][j];
                 table.rows[i].cells[j].style.color = "blue";
+            } else{
+                arr[i][j]=0;
             }
+            // read numbers from array and write into table
+            // if (arr1[i][j] > 0) {
+            //     table.rows[i].cells[j].textContent = arr1[i][j];
+            //     table.rows[i].cells[j].style.color = "blue";
+            // }
         }
     }
     CurrentZeroes = HowManyZeroes();
     let Iter = 0;
+    console.log(arr);
     do {
         PreviousZeroes = CurrentZeroes;
         Cube = InitCube(9, 9, 10, 1);
@@ -245,7 +252,7 @@ function solveFromArray() {
     }
     while (PreviousZeroes != CurrentZeroes);
     console.log(Iter);
-    //console.log(projection.slice(8,9));
+    console.log(projection.slice(8,9));
 }
 
 
