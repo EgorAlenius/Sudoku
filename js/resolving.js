@@ -8,6 +8,15 @@ let arr = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0
 let Cube;
 let projection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 let PreviousZeroes;
+// for (let i = 0; i < 3; i++) {
+//     for (let j = 0; j < 3; j++) {
+//         table.rows[0+i].cells[3+j].setAttribute('bgColor', '#cccccc');
+//         table.rows[3+i].cells[j].setAttribute('bgColor', '#cccccc');
+//         table.rows[3+i].cells[6+j].setAttribute('bgColor', '#cccccc');
+//         table.rows[6+i].cells[3+j].setAttribute('bgColor', '#cccccc');
+//     }
+// }
+
 
 function PrintProjection(){
     console.log("Projecton:");
@@ -37,7 +46,6 @@ function Analyse() {
             }
         }
     }
-    //console.log(Cube);
 }
 
 function CalculateProjection() {
@@ -50,8 +58,6 @@ function CalculateProjection() {
                 }
             }
         }
-    // console.log('Projection');
-    // console.log(projection);
 }
 
 
@@ -72,25 +78,6 @@ function InitCube(xmax, ymax, zmax, def) {
     return r;
 }
 
-
-// function myFunction() {
-//     console.log("Solve is pressed");
-//     for (let i = 0; i < 9; i++) {
-//         for (let j = 0; j < 9; j++) {
-
-//             parent = table.rows[i].cells[j];
-//             child = parent.querySelector('input');
-
-//             let znach=child.value;
-//             arr[i][j]=znach;
-//             //console.log(znach);
-//             child.remove();
-//             table.rows[i].cells[j].textContent=arr[i][j];
-//         }
-//     }    
-//     console.log( Object.values(table.rows[0].cells[0]));
-// }
-
 function NewValueFinding() {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
@@ -101,8 +88,6 @@ function NewValueFinding() {
                 }
                 arr[i][j] = k;
                 table.rows[i].cells[j].textContent = k;
-                //table.rows[i].cells[j].style.color = "gray";
-                //console.log(k);
             }
         }
     }
@@ -111,7 +96,6 @@ function NewValueFinding() {
 function HorisontalProjection() {
     let last = 0;
     let HorProjection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
-    //console.log("Horizontal");
     for (let x = 0; x < 9; x++) {
         for (let z = 1; z < 10; z++) {
             for (let y = 0; y < 9; y++) {
@@ -122,19 +106,15 @@ function HorisontalProjection() {
             }
             if ((HorProjection[x][z - 1] == 1) & (arr[x][last] != z)) {
                 arr[x][last] = z;
-                //console.log(x, last, z);
                 table.rows[x].cells[last].textContent = String(z);
             }
         }
     }
-    //console.log(HorProjection);
-    //console.log(arr1);
 }
 
 function VerticalProjection() {
     let last = 0;
     let VerProjection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
-    //console.log("Vertical");
     for (let y = 0; y < 9; y++) {
         for (let z = 1; z < 10; z++) {
             for (let x = 0; x < 9; x++) {
@@ -143,16 +123,12 @@ function VerticalProjection() {
                     VerProjection[y][z - 1]++;
                 }
             }
-            //console.log(last, y, VerProjection[y][z - 1], arr1[last][y]);
             if ((VerProjection[y][z - 1] == 1) & (arr[last][y] != z)) {
                 arr[last][y] = z;
-                //console.log(last, y, z);
                 table.rows[last].cells[y].textContent = String(z);
             }
         }
     }
-    //console.log(VerProjection);
-    // console.log(arr1);
 }
 
 function ThreeByThreeProjection() {
@@ -217,23 +193,25 @@ function solveFromArray() {
             // delete inputs from table
             parent = table.rows[i].cells[j];
             child = parent.querySelector('input');
-            //console.log(child.value);
-            //arr1[i][j]=child.text;//table.rows[i].cells[j].textContent;
             if (child.value!=""){
                 arr[i][j]=parseInt(child.value);
-                child.remove();
+                
                 table.rows[i].cells[j].textContent = arr[i][j];
                 table.rows[i].cells[j].style.color = "blue";
-            } else{
-                arr[i][j]=0;
-            }
-            // read numbers from array and write into table
-            // if (arr1[i][j] > 0) {
-            //     table.rows[i].cells[j].textContent = arr1[i][j];
-            //     table.rows[i].cells[j].style.color = "blue";
-            // }
+            } 
+            child.remove();
         }
     }
+
+    // for (let i = 0; i < 3; i++) {
+    //     for (let j = 0; j < 3; j++) {
+    //         table.rows[0+i].cells[3+j].setAttribute('bgColor', '#cccccc');
+    //         table.rows[3+i].cells[j].setAttribute('bgColor', '#cccccc');
+    //         table.rows[3+i].cells[6+j].setAttribute('bgColor', '#cccccc');
+    //         table.rows[6+i].cells[3+j].setAttribute('bgColor', '#cccccc');
+    //     }
+    // }
+
     CurrentZeroes = HowManyZeroes();
     let Iter = 0;
     console.log(arr);
