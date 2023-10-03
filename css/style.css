@@ -1,7 +1,10 @@
 * { box-sizing: border-box; }
 table { 
   border-collapse: collapse;
-  margin: 10px; 
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 tr:first-child td {
@@ -32,4 +35,11 @@ input {
 
 input:hover {
 	background: #ffffff;
+}
+
+button {
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	transform: translate(-50%, -50%);
 }

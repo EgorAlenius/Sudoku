@@ -11,6 +11,9 @@ let PreviousZeroes;
 // for (let i = 0; i < 3; i++) {
 //     for (let j = 0; j < 3; j++) {
 //         table.rows[0+i].cells[3+j].setAttribute('bgColor', '#cccccc');
+//         child=table.rows[0+i].cells[3+j].querySelector('input');
+//         console.log(child);
+//         child.setAttribute('bgColor', '#cccccc');
 //         table.rows[3+i].cells[j].setAttribute('bgColor', '#cccccc');
 //         table.rows[3+i].cells[6+j].setAttribute('bgColor', '#cccccc');
 //         table.rows[6+i].cells[3+j].setAttribute('bgColor', '#cccccc');
@@ -186,6 +189,18 @@ function HowManyZeroes(){
     return Zeroes;
 }
 
+function ByExeption() {
+    let ZeroesInRow = new Set();
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (arr[i][j]== 0)
+            ZeroesInRow.add(j);
+        }
+        if ((ZeroesInRow.size==2)(ZeroesInRow.size==2))
+        console.log(ZeroesInRow);
+    }
+}
+
 function solveFromArray() {
     console.log("Solve is pressed");
     for (let i = 0; i < 9; i++) {
@@ -230,7 +245,8 @@ function solveFromArray() {
     }
     while (PreviousZeroes != CurrentZeroes);
     console.log(Iter);
-    console.log(projection.slice(8,9));
+    //console.log(projection.slice(8,9));
+    ByExeption();
 }
 
 
