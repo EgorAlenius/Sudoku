@@ -6,6 +6,7 @@ table {
   left:50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  background: white;
 }
 tr:first-child td {
 	border-top-color: black;
@@ -38,16 +39,32 @@ input:hover {
 }
 
 button {
+	size: 20px;
 	position: absolute;
 	left: 50%;
 	bottom: 10%;
 	transform: translate(-50%, -50%);
+	color: blue;
+	/* background-color: #4CAF50; 
+    border: none;
+    color: white; */
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
 }
 
 h2 {
-	color: blue;
+	color: red;
 	position: absolute;
-	top: 10%;
+	top: 7%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+body {
+	background: lightgray;
+	
+	/*text-size-adjust: 20;*/
 }
