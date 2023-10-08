@@ -9,6 +9,9 @@ let arr = [[0, 0, 2, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0
 let Cube;
 let projection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 let PreviousZeroes;
+let xCollision;
+let yCollision;
+
 // for (let i = 0; i < 3; i++) {
 //     for (let j = 0; j < 3; j++) {
 //         table.rows[0+i].cells[3+j].setAttribute('bgColor', '#cccccc');
@@ -247,6 +250,19 @@ function ByVerticalExeption(arr) {
                     }
                 }
             }
+        }
+    }
+}
+
+function FindFirstCollision(array){
+    let CollisionsNumber=9;
+    for (let x=0; x<9; x++){
+        for (let y=0; y<9; y++){
+            if ((array[x][y]>1)&&(array[x][y]<CollisionsNumber)){
+                CollisionsNumber=array[x][y];
+                xCollision=x;
+                yCollision=y;
+            }    
         }
     }
 }
