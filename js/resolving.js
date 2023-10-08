@@ -4,7 +4,7 @@ document.getElementById('solveButton').addEventListener("click", solveFromArray)
 //let arr = [[0, 1, 0, 2, 0, 0, 3, 0, 0], [2, 0, 0, 5, 3, 0, 0, 0, 9], [0, 5, 0, 4, 0, 0, 0, 0, 0], [0, 6, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 7, 0, 0, 0, 6], [3, 4, 0, 0, 0, 5, 0, 0, 0], [0, 7, 1, 0, 0, 6, 0, 2, 0], [6, 0, 0, 0, 0, 1, 0, 0, 7], [0, 0, 0, 0, 0, 4, 8, 0, 0]]
 //let arr = [[0, 0, 0, 0, 0, 5, 6, 0, 2], [8, 0, 0, 2, 0, 6, 7, 9, 0], [0, 2, 0, 9, 0, 0, 1, 0, 0], [0, 0, 6, 0, 2, 0, 0, 1, 0], [0, 5, 0, 0, 7, 0, 0, 8, 0], [0, 3, 0, 0, 5, 0, 2, 0, 0], [0, 0, 8, 0, 0, 2, 0, 6, 0], [0, 1, 2, 5, 0, 8, 0, 0, 7], [9, 0, 3, 1, 0, 0, 0, 0, 0]]
 //let arr = [[0, 0, 3, 0, 0, 0, 9, 0, 1], [0, 0, 0, 0, 0, 7, 0, 0, 3], [0, 0, 0, 2, 0, 8, 0, 0, 5], [0, 4, 0, 5, 0, 0, 0, 0, 0], [0, 7, 0, 0, 0, 0, 6, 0, 8], [0, 0, 0, 7, 0, 0, 0, 9, 0], [0, 0, 0, 0, 0, 0, 7, 8, 4], [2, 1, 0, 0, 0, 0, 0, 0, 0], [0, 8, 0, 0, 9, 0, 0, 0, 0]]
-let arr = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
+let arr = [[0, 0, 2, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
 //let arr1 = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
 let Cube;
 let projection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
@@ -64,7 +64,7 @@ function CalculateProjection() {
         }
 }
 
-function InitCube() {
+function InitCube(arr) {
     var r, x, y, z;
     for (r = [], x = 0; x < 9; x++) {
         for (r[x] = [], y = 0; y < 9; y++) {
@@ -81,7 +81,7 @@ function InitCube() {
     return r;
 }
 
-function NewValueFinding() {
+function NewValueFinding(arr) {
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
             if ((projection[i][j] == 1) & (arr[i][j] == 0)) {
@@ -96,7 +96,7 @@ function NewValueFinding() {
     }
 }
 
-function HorisontalProjection() {
+function HorisontalProjection(arr) {
     let last = 0;
     let HorProjection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
     for (let x = 0; x < 9; x++) {
@@ -115,7 +115,7 @@ function HorisontalProjection() {
     }
 }
 
-function VerticalProjection() {
+function VerticalProjection(arr) {
     let last = 0;
     let VerProjection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
     for (let y = 0; y < 9; y++) {
@@ -134,7 +134,7 @@ function VerticalProjection() {
     }
 }
 
-function ThreeByThreeProjection() {
+function ThreeByThreeProjection(arr) {
     let summ, lastX, lastY;
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -178,7 +178,7 @@ function CubeClear(){
     }
 }
 
-function HowManyZeroes(){
+function HowManyZeroes(arr){
     let Zeroes=0;
     for (let x=0; x<9; x++){
         for (let y=0; y<9; y++){
@@ -189,7 +189,7 @@ function HowManyZeroes(){
     return Zeroes;
 }
 
-function ByHorizontalExeption() {
+function ByHorizontalExeption(arr) {
     for (let i = 0; i < 9; i++) {
         let ZeroesInRow = [];
         let PossibleValues = [];
@@ -220,7 +220,7 @@ function ByHorizontalExeption() {
     }
 }
 
-function ByVerticalExeption() {
+function ByVerticalExeption(arr) {
     for (let i = 0; i < 9; i++) {
         let ZeroesInRow = [];
         let PossibleValues = [];
@@ -277,27 +277,28 @@ function solveFromArray() {
     //     }
     // }
 
-    CurrentZeroes = HowManyZeroes();
+    //CurrentZeroes = HowManyZeroes(arr);
     let Iter = 0;
     console.log(arr);
     do {
-        PreviousZeroes = CurrentZeroes;
-        Cube = InitCube();
+        PreviousZeroes = HowManyZeroes(arr);//CurrentZeroes;
+        Cube = InitCube(arr);
         Analyse();
-        ByHorizontalExeption();
-        ByVerticalExeption();
+        ByHorizontalExeption(arr);
+        ByVerticalExeption(arr);
         CalculateProjection();
-        HorisontalProjection();
-        VerticalProjection();
-        ThreeByThreeProjection();
-        NewValueFinding();
-        CurrentZeroes = HowManyZeroes();
+        HorisontalProjection(arr);
+        VerticalProjection(arr);
+        ThreeByThreeProjection(arr);
+        NewValueFinding(arr);
+        CurrentZeroes = HowManyZeroes(arr);
         Iter++;
         PrintProjection();
     }
     while (PreviousZeroes != CurrentZeroes);
     console.log("Iterations - ", Iter);
     console.log("To be found - ", CurrentZeroes);
+    console.log("Conflicts - ", HowManyZeroes(projection));
 }
 
 
