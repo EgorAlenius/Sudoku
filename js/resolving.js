@@ -350,6 +350,7 @@ function solveFromArray() {
         console.log("Conflicts - ", HowManyZeroes(projection));
         arr[xCollision][yCollision] = 0;
         Work(arr);
+        console.log("Test ",i," ", arr1);
     }
         // let arr2 = MyCopy(arr);
         // arr2[xCollision][yCollision] = CollisionsVariant[1];
@@ -358,7 +359,7 @@ function solveFromArray() {
         // console.log("9 Conflicts - ", HowManyZeroes(projection));
     console.log("ConflictsMap- ", ConflictsMap);
     console.log(arr);
-    //console.log(arr2);
+    
 }
 
 
