@@ -9,8 +9,9 @@ let arr = [[0, 0, 2, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0
 let Cube;
 let projection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 let PreviousZeroes;
-let xCollision;
-let yCollision;
+let xCollision, yCollision;
+let CollisionsVariant=[];
+
 
 // for (let i = 0; i < 3; i++) {
 //     for (let j = 0; j < 3; j++) {
@@ -263,6 +264,13 @@ function FindFirstCollision(array){
                 xCollision=x;
                 yCollision=y;
             }    
+        }
+    }
+    for (let x=0; x<10; x++){
+        let i=0;
+        if (Cube[xCollision][yCollision][x]==1){
+            CollisionsVariant[i]=Cube[xCollision][yCollision][x];
+            i++;
         }
     }
 }
