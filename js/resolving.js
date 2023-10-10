@@ -1,16 +1,19 @@
 let table = document.getElementById('table');
 document.getElementById('solveButton').addEventListener("click", solveFromArray);//myFunction);
-//let arr = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]]
+//let arr = [[1, 0, 7, 0, 0, 0, 5, 2, 0], [0, 0, 0, 0, 4, 5, 0, 0, 0], [0, 0, 8, 3, 0, 0, 1, 0, 6], [8, 0, 0, 9, 0, 0, 0, 0, 0], [0, 0, 0, 6, 0, 7, 0, 0, 0], [6, 0, 0, 0, 0, 0, 9, 8, 0], [0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0, 4, 9, 0], [0, 0, 1, 2, 0, 4, 0, 0, 0]]
 //let arr = [[0, 1, 0, 2, 0, 0, 3, 0, 0], [2, 0, 0, 5, 3, 0, 0, 0, 9], [0, 5, 0, 4, 0, 0, 0, 0, 0], [0, 6, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 7, 0, 0, 0, 6], [3, 4, 0, 0, 0, 5, 0, 0, 0], [0, 7, 1, 0, 0, 6, 0, 2, 0], [6, 0, 0, 0, 0, 1, 0, 0, 7], [0, 0, 0, 0, 0, 4, 8, 0, 0]]
 //let arr = [[0, 0, 0, 0, 0, 5, 6, 0, 2], [8, 0, 0, 2, 0, 6, 7, 9, 0], [0, 2, 0, 9, 0, 0, 1, 0, 0], [0, 0, 6, 0, 2, 0, 0, 1, 0], [0, 5, 0, 0, 7, 0, 0, 8, 0], [0, 3, 0, 0, 5, 0, 2, 0, 0], [0, 0, 8, 0, 0, 2, 0, 6, 0], [0, 1, 2, 5, 0, 8, 0, 0, 7], [9, 0, 3, 1, 0, 0, 0, 0, 0]]
 //let arr = [[0, 0, 3, 0, 0, 0, 9, 0, 1], [0, 0, 0, 0, 0, 7, 0, 0, 3], [0, 0, 0, 2, 0, 8, 0, 0, 5], [0, 4, 0, 5, 0, 0, 0, 0, 0], [0, 7, 0, 0, 0, 0, 6, 0, 8], [0, 0, 0, 7, 0, 0, 0, 9, 0], [0, 0, 0, 0, 0, 0, 7, 8, 4], [2, 1, 0, 0, 0, 0, 0, 0, 0], [0, 8, 0, 0, 9, 0, 0, 0, 0]]
-let arr = [[0, 0, 2, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
+let arr = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
 //let arr1 = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
 let Cube;
 let projection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 let PreviousZeroes;
 let xCollision, yCollision;
 let CollisionsVariant=[];
+//let arr1, arr2;
+let Maine=[];
+let Iter = 0;
 
 
 // for (let i = 0; i < 3; i++) {
@@ -94,7 +97,7 @@ function NewValueFinding(arr) {
                     k++;
                 }
                 arr[i][j] = k;
-                table.rows[i].cells[j].textContent = k;
+                //table.rows[i].cells[j].textContent = k;
             }
         }
     }
@@ -113,7 +116,7 @@ function HorisontalProjection(arr) {
             }
             if ((HorProjection[x][z - 1] == 1) & (arr[x][last] != z)) {
                 arr[x][last] = z;
-                table.rows[x].cells[last].textContent = String(z);
+                //table.rows[x].cells[last].textContent = String(z);
             }
         }
     }
@@ -132,7 +135,7 @@ function VerticalProjection(arr) {
             }
             if ((VerProjection[y][z - 1] == 1) & (arr[last][y] != z)) {
                 arr[last][y] = z;
-                table.rows[last].cells[y].textContent = String(z);
+                //table.rows[last].cells[y].textContent = String(z);
             }
         }
     }
@@ -155,7 +158,7 @@ function ThreeByThreeProjection(arr) {
                 }
                 if(summ==1){
                     arr[lastX][lastY] = z;
-                    table.rows[lastX].cells[lastY].textContent = String(z);
+                    //table.rows[lastX].cells[lastY].textContent = String(z);
                 } 
             }
         }
@@ -259,51 +262,25 @@ function FindFirstCollision(array){
     let CollisionsNumber=9;
     for (let x=0; x<9; x++){
         for (let y=0; y<9; y++){
-            if ((array[x][y]>1)&&(array[x][y]<CollisionsNumber)){
-                CollisionsNumber=array[x][y];
+            if ((projection[x][y]>1)&&(projection[x][y]<CollisionsNumber)){
+                CollisionsNumber=projection[x][y];
                 xCollision=x;
                 yCollision=y;
             }    
         }
     }
-    for (let x=0; x<10; x++){
-        let i=0;
+    let i=0;
+    for (let x=1; x<10; x++){     
         if (Cube[xCollision][yCollision][x]==1){
-            CollisionsVariant[i]=Cube[xCollision][yCollision][x];
+            CollisionsVariant[i]=x;
             i++;
         }
     }
+    console.log("x - ", xCollision, "y - ", yCollision,"N - ", CollisionsNumber,);
+    console.log(Cube[xCollision][yCollision]);
 }
 
-function solveFromArray() {
-    
-    // for (let i = 0; i < 9; i++) {
-    //     for (let j = 0; j < 9; j++) {
-    //         // delete inputs from table
-    //         parent = table.rows[i].cells[j];
-    //         child = parent.querySelector('input');
-    //         if (child.value!=""){
-    //             arr[i][j]=parseInt(child.value);
-                
-    //             table.rows[i].cells[j].textContent = arr[i][j];
-    //             table.rows[i].cells[j].style.color = "blue";
-    //         } 
-    //         child.remove();
-    //     }
-    // }
-
-    // for (let i = 0; i < 3; i++) {
-    //     for (let j = 0; j < 3; j++) {
-    //         table.rows[0+i].cells[3+j].setAttribute('bgColor', '#cccccc');
-    //         table.rows[3+i].cells[j].setAttribute('bgColor', '#cccccc');
-    //         table.rows[3+i].cells[6+j].setAttribute('bgColor', '#cccccc');
-    //         table.rows[6+i].cells[3+j].setAttribute('bgColor', '#cccccc');
-    //     }
-    // }
-
-    //CurrentZeroes = HowManyZeroes(arr);
-    let Iter = 0;
-    console.log(arr);
+function Work(arr){
     do {
         PreviousZeroes = HowManyZeroes(arr);//CurrentZeroes;
         Cube = InitCube(arr);
@@ -320,9 +297,68 @@ function solveFromArray() {
         PrintProjection();
     }
     while (PreviousZeroes != CurrentZeroes);
+}
+
+function MyCopy (arr){
+    let arrCopy=[[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];;
+    for (let x = 0; x < 9; x++) {
+        for (let y = 0; y < 9; y++) {
+            arrCopy[x][y] = arr[x][y];
+        }
+    }
+    return arrCopy
+}
+
+function Show(){
+    for (let x = 0; x < 9; x++) {
+        for (let y = 0; y < 9; y++) {
+            if (arr[x][y]!=0)
+            table.rows[x].cells[y].textContent = arr[x][y];
+        }
+    }
+}
+
+function solveFromArray() { 
+    // for (let i = 0; i < 9; i++) {
+    //     for (let j = 0; j < 9; j++) {
+    //         // delete inputs from table
+    //         parent = table.rows[i].cells[j];
+    //         child = parent.querySelector('input');
+    //         if (child.value!=""){
+    //             arr[i][j]=parseInt(child.value);
+                
+    //             table.rows[i].cells[j].textContent = arr[i][j];
+    //             table.rows[i].cells[j].style.color = "blue";
+    //         } 
+    //         child.remove();
+    //     }
+    // }
+
+    Work(arr);
+    Show();
+    FindFirstCollision(arr);
     console.log("Iterations - ", Iter);
     console.log("To be found - ", CurrentZeroes);
     console.log("Conflicts - ", HowManyZeroes(projection));
+    console.log(CollisionsVariant);
+    let ConflictsMap=[];
+    for (let i = 0; i <CollisionsVariant.length; i++) {
+        let arr1 = MyCopy(arr);
+        arr[xCollision][yCollision] = CollisionsVariant[i];
+        Work(arr1);
+        ConflictsMap[i]=HowManyZeroes(projection);
+        console.log("Conflicts - ", HowManyZeroes(projection));
+        arr[xCollision][yCollision] = 0;
+        Work(arr);
+    }
+        // let arr2 = MyCopy(arr);
+        // arr2[xCollision][yCollision] = CollisionsVariant[1];
+        // Work(arr2);
+        // ConflictsMap[1]=HowManyZeroes(projection);
+        // console.log("9 Conflicts - ", HowManyZeroes(projection));
+    console.log("ConflictsMap- ", ConflictsMap);
+    console.log(arr);
+    //console.log(arr2);
 }
 
 
