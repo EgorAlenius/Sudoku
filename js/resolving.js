@@ -1,17 +1,15 @@
 let table = document.getElementById('table');
 document.getElementById('solveButton').addEventListener("click", solveFromArray);//myFunction);
-//let arr = [[1, 0, 7, 0, 0, 0, 5, 2, 0], [0, 0, 0, 0, 4, 5, 0, 0, 0], [0, 0, 8, 3, 0, 0, 1, 0, 6], [8, 0, 0, 9, 0, 0, 0, 0, 0], [0, 0, 0, 6, 0, 7, 0, 0, 0], [6, 0, 0, 0, 0, 0, 9, 8, 0], [0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0, 4, 9, 0], [0, 0, 1, 2, 0, 4, 0, 0, 0]]
+let arr = [[1, 0, 7, 0, 0, 0, 5, 2, 0], [0, 0, 0, 0, 4, 5, 0, 0, 0], [0, 0, 8, 3, 0, 0, 1, 0, 6], [8, 0, 0, 9, 0, 0, 0, 0, 0], [0, 0, 0, 6, 0, 7, 0, 0, 0], [6, 0, 0, 0, 0, 0, 9, 8, 0], [0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0, 4, 9, 0], [0, 0, 1, 2, 0, 4, 0, 0, 0]]
 //let arr = [[0, 1, 0, 2, 0, 0, 3, 0, 0], [2, 0, 0, 5, 3, 0, 0, 0, 9], [0, 5, 0, 4, 0, 0, 0, 0, 0], [0, 6, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 7, 0, 0, 0, 6], [3, 4, 0, 0, 0, 5, 0, 0, 0], [0, 7, 1, 0, 0, 6, 0, 2, 0], [6, 0, 0, 0, 0, 1, 0, 0, 7], [0, 0, 0, 0, 0, 4, 8, 0, 0]]
 //let arr = [[0, 0, 0, 0, 0, 5, 6, 0, 2], [8, 0, 0, 2, 0, 6, 7, 9, 0], [0, 2, 0, 9, 0, 0, 1, 0, 0], [0, 0, 6, 0, 2, 0, 0, 1, 0], [0, 5, 0, 0, 7, 0, 0, 8, 0], [0, 3, 0, 0, 5, 0, 2, 0, 0], [0, 0, 8, 0, 0, 2, 0, 6, 0], [0, 1, 2, 5, 0, 8, 0, 0, 7], [9, 0, 3, 1, 0, 0, 0, 0, 0]]
 //let arr = [[0, 0, 3, 0, 0, 0, 9, 0, 1], [0, 0, 0, 0, 0, 7, 0, 0, 3], [0, 0, 0, 2, 0, 8, 0, 0, 5], [0, 4, 0, 5, 0, 0, 0, 0, 0], [0, 7, 0, 0, 0, 0, 6, 0, 8], [0, 0, 0, 7, 0, 0, 0, 9, 0], [0, 0, 0, 0, 0, 0, 7, 8, 4], [2, 1, 0, 0, 0, 0, 0, 0, 0], [0, 8, 0, 0, 9, 0, 0, 0, 0]]
-let arr = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
-//let arr1 = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
+//let arr = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
 let Cube;
 let projection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 let PreviousZeroes;
-let xCollision, yCollision;
+let xCollision=0, yCollision=0;
 let CollisionsVariant=[];
-//let arr1, arr2;
 let Maine=[];
 let Iter = 0;
 
@@ -260,8 +258,8 @@ function ByVerticalExeption(arr) {
 
 function FindFirstCollision(array){
     let CollisionsNumber=9;
-    for (let x=0; x<9; x++){
-        for (let y=0; y<9; y++){
+    for (let x=xCollision; x<9; x++){
+        for (let y=yCollision; y<9; y++){
             if ((projection[x][y]>1)&&(projection[x][y]<CollisionsNumber)){
                 CollisionsNumber=projection[x][y];
                 xCollision=x;
@@ -340,22 +338,45 @@ function solveFromArray() {
     Work(arr);
     Show();
     FindFirstCollision(arr);
-    console.log("Iterations - ", Iter);
-    console.log("To be found - ", CurrentZeroes);
-    console.log("Conflicts - ", HowManyZeroes(projection));
-    console.log(CollisionsVariant);
-    let ConflictsMap=[];
-    let arr1 = MyCopy(arr); //Reserve copy
-    for (let i = 0; i<CollisionsVariant.length; i++) {
+    // console.log("Iterations - ", Iter);
+    // console.log("To be found - ", CurrentZeroes);
+    // console.log("Conflicts - ", HowManyZeroes(projection));
+    // console.log(CollisionsVariant);
+
+    for (let e = 0; e < 4; e++) {
+        FindFirstCollision(arr);
+        console.log("Iterations - ", Iter);
+        console.log("To be found - ", CurrentZeroes);
+        console.log("Conflicts - ", HowManyZeroes(projection));
+        console.log(CollisionsVariant);
+        let ConflictsMap = [];
+        let arr1 = MyCopy(arr); //Reserve copy
+        for (let i = 0; i < CollisionsVariant.length; i++) {
+            arr = MyCopy(arr1);
+            arr[xCollision][yCollision] = CollisionsVariant[i];
+            Work(arr);
+            ConflictsMap[i] = HowManyZeroes(projection);
+            console.log(i, " Conflicts - ", HowManyZeroes(projection));
+        }
+        console.log("ConflictsMap- ", ConflictsMap);
         arr = MyCopy(arr1);
-        arr[xCollision][yCollision] = CollisionsVariant[i];
+        if (ConflictsMap.filter(item => item === 0).length==1) {
+            arr[xCollision][yCollision] = CollisionsVariant[ConflictsMap.indexOf(0)];
+        }
         Work(arr);
-        ConflictsMap[i]=HowManyZeroes(projection);
-        console.log(i," Conflicts - ", HowManyZeroes(projection));
-    }   
-    console.log("ConflictsMap- ", ConflictsMap);
-    arr = MyCopy(arr1);
-    console.log(arr);
+        Show();
+        console.log(arr);
+        if (yCollision<8) 
+            yCollision++;
+        else{
+            yCollision=0;
+            xCollision++;
+        }
+        if (xCollision>8) {
+            yCollision=0;
+            xCollision=0;
+        }
+    }
 }
 
 
