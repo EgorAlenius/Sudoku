@@ -294,7 +294,7 @@ function Work(arr){
         NewValueFinding(arr);
         CurrentZeroes = HowManyZeroes(arr);
         Iter++;
-        PrintProjection();
+        //PrintProjection();
     }
     while (PreviousZeroes != CurrentZeroes);
 }
@@ -318,22 +318,25 @@ function Show(){
     }
 }
 
-function solveFromArray() { 
-    // for (let i = 0; i < 9; i++) {
-    //     for (let j = 0; j < 9; j++) {
-    //         // delete inputs from table
-    //         parent = table.rows[i].cells[j];
-    //         child = parent.querySelector('input');
-    //         if (child.value!=""){
-    //             arr[i][j]=parseInt(child.value);
+function ReadFromTable(){
+   for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            // delete inputs from table
+            parent = table.rows[i].cells[j];
+            child = parent.querySelector('input');
+            if (child.value!=""){
+                arr[i][j]=parseInt(child.value);
                 
-    //             table.rows[i].cells[j].textContent = arr[i][j];
-    //             table.rows[i].cells[j].style.color = "blue";
-    //         } 
-    //         child.remove();
-    //     }
-    // }
+                table.rows[i].cells[j].textContent = arr[i][j];
+                table.rows[i].cells[j].style.color = "blue";
+            } 
+            child.remove();
+        }
+    } 
+}
 
+function solveFromArray() { 
+    //ReadFromTable();
     Work(arr);
     Show();
     FindFirstCollision(arr);
@@ -342,24 +345,17 @@ function solveFromArray() {
     console.log("Conflicts - ", HowManyZeroes(projection));
     console.log(CollisionsVariant);
     let ConflictsMap=[];
-    for (let i = 0; i <CollisionsVariant.length; i++) {
-        let arr1 = MyCopy(arr);
+    let arr1 = MyCopy(arr); //Reserve copy
+    for (let i = 0; i<CollisionsVariant.length; i++) {
+        arr = MyCopy(arr1);
         arr[xCollision][yCollision] = CollisionsVariant[i];
-        Work(arr1);
-        ConflictsMap[i]=HowManyZeroes(projection);
-        console.log("Conflicts - ", HowManyZeroes(projection));
-        arr[xCollision][yCollision] = 0;
         Work(arr);
-        console.log("Test ",i," ", arr1);
-    }
-        // let arr2 = MyCopy(arr);
-        // arr2[xCollision][yCollision] = CollisionsVariant[1];
-        // Work(arr2);
-        // ConflictsMap[1]=HowManyZeroes(projection);
-        // console.log("9 Conflicts - ", HowManyZeroes(projection));
+        ConflictsMap[i]=HowManyZeroes(projection);
+        console.log(i," Conflicts - ", HowManyZeroes(projection));
+    }   
     console.log("ConflictsMap- ", ConflictsMap);
+    arr = MyCopy(arr1);
     console.log(arr);
-    
 }
 
 
