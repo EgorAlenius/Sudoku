@@ -350,16 +350,16 @@ function solveFromArray() {
         console.log("Conflicts - ", HowManyZeroes(projection));
         console.log(CollisionsVariant);
         let ConflictsMap = [];
-        let arr1 = MyCopy(arr); //Reserve copy
+        let reserveArr = MyCopy(arr); //Reserve copy
         for (let i = 0; i < CollisionsVariant.length; i++) {
-            arr = MyCopy(arr1);
+            arr = MyCopy(reserveArr);
             arr[xCollision][yCollision] = CollisionsVariant[i];
             Work(arr);
             ConflictsMap[i] = HowManyZeroes(projection);
             console.log(i, " Conflicts - ", HowManyZeroes(projection));
         }
         console.log("ConflictsMap- ", ConflictsMap);
-        arr = MyCopy(arr1);
+        arr = MyCopy(reserveArr);
         if (ConflictsMap.filter(item => item === 0).length==1) {
             arr[xCollision][yCollision] = CollisionsVariant[ConflictsMap.indexOf(0)];
         }
