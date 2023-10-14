@@ -1,6 +1,8 @@
 let table = document.getElementById('table');
-document.getElementById('solveButton').addEventListener("click", solveFromArray);//myFunction);
-let arr = [[1, 0, 7, 0, 0, 0, 5, 2, 0], [0, 0, 0, 0, 4, 5, 0, 0, 0], [0, 0, 8, 3, 0, 0, 1, 0, 6], [8, 0, 0, 9, 0, 0, 0, 0, 0], [0, 0, 0, 6, 0, 7, 0, 0, 0], [6, 0, 0, 0, 0, 0, 9, 8, 0], [0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0, 4, 9, 0], [0, 0, 1, 2, 0, 4, 0, 0, 0]]
+document.getElementById('solveButton').addEventListener("click", solveFromArray);
+// document.getElementById('clearButton').addEventListener("click", cleaning);
+let arr = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+//let arr = [[1, 0, 7, 0, 0, 0, 5, 2, 0], [0, 0, 0, 0, 4, 5, 0, 0, 0], [0, 0, 8, 3, 0, 0, 1, 0, 6], [8, 0, 0, 9, 0, 0, 0, 0, 0], [0, 0, 0, 6, 0, 7, 0, 0, 0], [6, 0, 0, 0, 0, 0, 9, 8, 0], [0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0, 4, 9, 0], [0, 0, 1, 2, 0, 4, 0, 0, 0]]
 //let arr = [[0, 1, 0, 2, 0, 0, 3, 0, 0], [2, 0, 0, 5, 3, 0, 0, 0, 9], [0, 5, 0, 4, 0, 0, 0, 0, 0], [0, 6, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 7, 0, 0, 0, 6], [3, 4, 0, 0, 0, 5, 0, 0, 0], [0, 7, 1, 0, 0, 6, 0, 2, 0], [6, 0, 0, 0, 0, 1, 0, 0, 7], [0, 0, 0, 0, 0, 4, 8, 0, 0]]
 //let arr = [[0, 0, 0, 0, 0, 5, 6, 0, 2], [8, 0, 0, 2, 0, 6, 7, 9, 0], [0, 2, 0, 9, 0, 0, 1, 0, 0], [0, 0, 6, 0, 2, 0, 0, 1, 0], [0, 5, 0, 0, 7, 0, 0, 8, 0], [0, 3, 0, 0, 5, 0, 2, 0, 0], [0, 0, 8, 0, 0, 2, 0, 6, 0], [0, 1, 2, 5, 0, 8, 0, 0, 7], [9, 0, 3, 1, 0, 0, 0, 0, 0]]
 //let arr = [[0, 0, 3, 0, 0, 0, 9, 0, 1], [0, 0, 0, 0, 0, 7, 0, 0, 3], [0, 0, 0, 2, 0, 8, 0, 0, 5], [0, 4, 0, 5, 0, 0, 0, 0, 0], [0, 7, 0, 0, 0, 0, 6, 0, 8], [0, 0, 0, 7, 0, 0, 0, 9, 0], [0, 0, 0, 0, 0, 0, 7, 8, 4], [2, 1, 0, 0, 0, 0, 0, 0, 0], [0, 8, 0, 0, 9, 0, 0, 0, 0]]
@@ -33,7 +35,7 @@ function PrintProjection(){
         console.log(String(projection.slice(x,x+1)));
 }
 
-function Analyse() {
+function Analyse(arr) {
     var i, j, xn, yn;
     for (x = 0; x < 9; x++) {
         for (y = 0; y < 9; y++) {
@@ -256,7 +258,7 @@ function ByVerticalExeption(arr) {
     }
 }
 
-function FindFirstCollision(array){
+function FindFirstCollision(){
     let CollisionsNumber=9;
     for (let x=xCollision; x<9; x++){
         for (let y=yCollision; y<9; y++){
@@ -282,7 +284,7 @@ function Work(arr){
     do {
         PreviousZeroes = HowManyZeroes(arr);//CurrentZeroes;
         Cube = InitCube(arr);
-        Analyse();
+        Analyse(arr);
         ByHorizontalExeption(arr);
         ByVerticalExeption(arr);
         CalculateProjection();
@@ -292,7 +294,7 @@ function Work(arr){
         NewValueFinding(arr);
         CurrentZeroes = HowManyZeroes(arr);
         Iter++;
-        //PrintProjection();
+        PrintProjection();
     }
     while (PreviousZeroes != CurrentZeroes);
 }
@@ -334,17 +336,17 @@ function ReadFromTable(){
 }
 
 function solveFromArray() { 
-    //ReadFromTable();
+    ReadFromTable();
     Work(arr);
     Show();
-    FindFirstCollision(arr);
+    FindFirstCollision();
     // console.log("Iterations - ", Iter);
     // console.log("To be found - ", CurrentZeroes);
     // console.log("Conflicts - ", HowManyZeroes(projection));
     // console.log(CollisionsVariant);
 
-    for (let e = 0; e < 4; e++) {
-        FindFirstCollision(arr);
+    do {
+        FindFirstCollision();
         console.log("Iterations - ", Iter);
         console.log("To be found - ", CurrentZeroes);
         console.log("Conflicts - ", HowManyZeroes(projection));
@@ -365,7 +367,7 @@ function solveFromArray() {
         }
         Work(arr);
         Show();
-        console.log(arr);
+        //console.log(arr);
         if (yCollision<8) 
             yCollision++;
         else{
@@ -376,7 +378,17 @@ function solveFromArray() {
             yCollision=0;
             xCollision=0;
         }
-    }
+    } while ((HowManyZeroes(arr)>0)&&(Iter<1000))
+    console.log("Iterations - ", Iter);
 }
 
-
+// function cleaning() {
+//     for (let i = 0; i < 9; i++) {
+//         for (let j = 0; j < 9; j++) {
+//             let newInput = document.createElement('input');
+//             table.rows[i].cells[j].textContent = "";
+//             table.rows[i].cells[j].appendChild(newInput);
+//             arr[i][j]=0;
+//         }
+//     } 
+// }
