@@ -7,6 +7,7 @@ table {
   transform: translate(-50%, -50%);
   text-align: center;
   background: white;
+  font-size: 30px;
 }
 tr:first-child td {
 	border-top-color: black;
@@ -16,8 +17,8 @@ tr:nth-child(3n) td {
 }
 td {
 	border: 1px solid grey;
-	height: 50px;
-	width: 50px;
+	height: 60px;
+	width: 60px;
 }
 td:first-child {
 	border-left-color: black;
@@ -32,31 +33,39 @@ input {
 	height: 50px;
 	width: 50px;
 	text-align: center;
+	font-size: 30px;
 }
 
-input:hover {
+/* input:hover {
 	background: #ffffff;
+} */
+
+.buttons{
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 #solveButton {
-	size: 20px;
-	position: absolute;
-	left: 50%;
-	bottom: 10%;
 	transform: translate(-50%, -50%);
 	color: blue;
-	/* background-color: #4CAF50; 
-    border: none;
-    color: white; */
-    /* padding: 15px 32px; */
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
+    font-size: 25px;
+	position: absolute;
+	left: 50%;
+	bottom: 7%;
+}
+
+#clearButton {
+	transform: translate(-50%, -50%);
+	color: rgb(255, 0, 0);
+	font-size: 25px;
+	position: absolute;
+	left: 62%;
+	bottom: 7%;
 }
 
 h2 {
-	color: red;
+	color: rgb(17, 0, 255);
 	position: absolute;
 	top: 7%;
 	left: 50%;
@@ -65,6 +74,4 @@ h2 {
 
 body {
 	background: lightgray;
-	
-	/*text-size-adjust: 20;*/
 }
