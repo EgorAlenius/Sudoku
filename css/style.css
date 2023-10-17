@@ -36,40 +36,57 @@ input {
 	font-size: 30px;
 }
 
-/* input:hover {
-	background: #ffffff;
-} */
-
 .buttons{
 	text-align: center;
     text-decoration: none;
     display: inline-block;
 }
 
+#solveButton:hover {
+	background-color: rgb(45, 56, 209);
+	color: white;
+}
+
 #solveButton {
+	border: 2px solid grey;
+	padding: 8px 20px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	background-color: rgb(7, 21, 209); 
+	border-radius: 12px;
 	transform: translate(-50%, -50%);
-	color: blue;
+	color: white;
     font-size: 25px;
 	position: absolute;
-	left: 50%;
-	bottom: 7%;
+	left: 37%;
+	bottom: 5%;
+}
+
+#clearButton:hover {
+	background-color:  rgb(233, 29, 29); 
+	color: white;
 }
 
 #clearButton {
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	padding: 8px 20px;
+	border: 2px solid grey;
+	background-color:rgb(212, 10, 10);
+	border-radius: 12px;
 	transform: translate(-50%, -50%);
-	color: rgb(255, 0, 0);
+	color: white;
 	font-size: 25px;
 	position: absolute;
-	left: 62%;
-	bottom: 7%;
+	left: 63%;
+	bottom: 5%;
 }
 
-h2 {
-	color: rgb(17, 0, 255);
+h1 {
+	color: rgb(241, 19, 11);
 	position: absolute;
-	top: 7%;
+	top: 5%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	font-style:  oblique;
 }
 
 body {
