@@ -16,8 +16,6 @@ for (let i = 0; i < 3; i++) {
         table.rows[0+i].cells[3+j].setAttribute('bgColor', '#eeeeee');
         child=table.rows[0+i].cells[3+j].querySelector('input');
         child.style.backgroundColor = '#eeeeee';
-        //console.log(child);
-        //child.setAttribute('bgColor', '#dddddd');
         table.rows[3+i].cells[j].setAttribute('bgColor', '#eeeeee');
         child=table.rows[3+i].cells[j].querySelector('input');
         child.style.backgroundColor = '#eeeeee';
@@ -99,7 +97,6 @@ function NewValueFinding(arr) {
                     k++;
                 }
                 arr[i][j] = k;
-                //table.rows[i].cells[j].textContent = k;
             }
         }
     }
@@ -118,7 +115,6 @@ function HorisontalProjection(arr) {
             }
             if ((HorProjection[x][z - 1] == 1) & (arr[x][last] != z)) {
                 arr[x][last] = z;
-                //table.rows[x].cells[last].textContent = String(z);
             }
         }
     }
@@ -137,7 +133,6 @@ function VerticalProjection(arr) {
             }
             if ((VerProjection[y][z - 1] == 1) & (arr[last][y] != z)) {
                 arr[last][y] = z;
-                //table.rows[last].cells[y].textContent = String(z);
             }
         }
     }
@@ -160,7 +155,6 @@ function ThreeByThreeProjection(arr) {
                 }
                 if(summ==1){
                     arr[lastX][lastY] = z;
-                    //table.rows[lastX].cells[lastY].textContent = String(z);
                 } 
             }
         }
@@ -342,11 +336,7 @@ function solveFromArray() {
     Work(arr);
     Show();
     FindFirstCollision();
-    // console.log("Iterations - ", Iter);
-    // console.log("To be found - ", CurrentZeroes);
-    // console.log("Conflicts - ", HowManyZeroes(projection));
-    // console.log(CollisionsVariant);
-
+    
     do {
         FindFirstCollision();
         console.log("Iterations - ", Iter);
@@ -369,7 +359,6 @@ function solveFromArray() {
         }
         Work(arr);
         Show();
-        //console.log(arr);
         if (yCollision<8) 
             yCollision++;
         else{
@@ -387,12 +376,3 @@ function solveFromArray() {
 function cleaning() {
     window.location.reload();
 }
-//     for (let i = 0; i < 9; i++) {
-//         for (let j = 0; j < 9; j++) {
-//             let newInput = document.createElement('input');
-//             table.rows[i].cells[j].textContent = "";
-//             table.rows[i].cells[j].appendChild(newInput);
-//             arr[i][j]=0;
-//         }
-//     } 
-// }
