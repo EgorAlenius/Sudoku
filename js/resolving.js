@@ -2,11 +2,6 @@ let table = document.getElementById('table');
 document.getElementById('solveButton').addEventListener("click", solveFromArray);
 document.getElementById('clearButton').addEventListener("click", cleaning);
 let arr = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
-//let arr = [[1, 0, 7, 0, 0, 0, 5, 2, 0], [0, 0, 0, 0, 4, 5, 0, 0, 0], [0, 0, 8, 3, 0, 0, 1, 0, 6], [8, 0, 0, 9, 0, 0, 0, 0, 0], [0, 0, 0, 6, 0, 7, 0, 0, 0], [6, 0, 0, 0, 0, 0, 9, 8, 0], [0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 5, 0, 0, 0, 0, 4, 9, 0], [0, 0, 1, 2, 0, 4, 0, 0, 0]]
-//let arr = [[0, 1, 0, 2, 0, 0, 3, 0, 0], [2, 0, 0, 5, 3, 0, 0, 0, 9], [0, 5, 0, 4, 0, 0, 0, 0, 0], [0, 6, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 7, 0, 0, 0, 6], [3, 4, 0, 0, 0, 5, 0, 0, 0], [0, 7, 1, 0, 0, 6, 0, 2, 0], [6, 0, 0, 0, 0, 1, 0, 0, 7], [0, 0, 0, 0, 0, 4, 8, 0, 0]]
-//let arr = [[0, 0, 0, 0, 0, 5, 6, 0, 2], [8, 0, 0, 2, 0, 6, 7, 9, 0], [0, 2, 0, 9, 0, 0, 1, 0, 0], [0, 0, 6, 0, 2, 0, 0, 1, 0], [0, 5, 0, 0, 7, 0, 0, 8, 0], [0, 3, 0, 0, 5, 0, 2, 0, 0], [0, 0, 8, 0, 0, 2, 0, 6, 0], [0, 1, 2, 5, 0, 8, 0, 0, 7], [9, 0, 3, 1, 0, 0, 0, 0, 0]]
-//let arr = [[0, 0, 3, 0, 0, 0, 9, 0, 1], [0, 0, 0, 0, 0, 7, 0, 0, 3], [0, 0, 0, 2, 0, 8, 0, 0, 5], [0, 4, 0, 5, 0, 0, 0, 0, 0], [0, 7, 0, 0, 0, 0, 6, 0, 8], [0, 0, 0, 7, 0, 0, 0, 9, 0], [0, 0, 0, 0, 0, 0, 7, 8, 4], [2, 1, 0, 0, 0, 0, 0, 0, 0], [0, 8, 0, 0, 9, 0, 0, 0, 0]]
-//let arr = [[0, 0, 0, 0, 8, 0, 1, 0, 0], [0, 0, 4, 7, 0, 0, 8, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 0], [7, 0, 6, 4, 0, 0, 0, 0, 0], [5, 1, 0, 0, 0, 0, 0, 0, 0], [8, 0, 0, 0, 0, 9, 7, 0, 2], [0, 5, 0, 6, 0, 0, 0, 3, 0], [0, 6, 0, 0, 3, 0, 4, 0, 5], [0, 9, 0, 1, 4, 0, 0, 0, 0]]
 let Cube;
 let projection = [[0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
 let PreviousZeroes;
@@ -15,18 +10,25 @@ let CollisionsVariant=[];
 let Maine=[];
 let Iter = 0;
 
-
-// for (let i = 0; i < 3; i++) {
-//     for (let j = 0; j < 3; j++) {
-//         table.rows[0+i].cells[3+j].setAttribute('bgColor', '#cccccc');
-//         child=table.rows[0+i].cells[3+j].querySelector('input');
-//         console.log(child);
-//         child.setAttribute('bgColor', '#cccccc');
-//         table.rows[3+i].cells[j].setAttribute('bgColor', '#cccccc');
-//         table.rows[3+i].cells[6+j].setAttribute('bgColor', '#cccccc');
-//         table.rows[6+i].cells[3+j].setAttribute('bgColor', '#cccccc');
-//     }
-// }
+// painting grey color some fields (& some inputs)
+for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+        table.rows[0+i].cells[3+j].setAttribute('bgColor', '#eeeeee');
+        child=table.rows[0+i].cells[3+j].querySelector('input');
+        child.style.backgroundColor = '#eeeeee';
+        //console.log(child);
+        //child.setAttribute('bgColor', '#dddddd');
+        table.rows[3+i].cells[j].setAttribute('bgColor', '#eeeeee');
+        child=table.rows[3+i].cells[j].querySelector('input');
+        child.style.backgroundColor = '#eeeeee';
+        table.rows[3+i].cells[6+j].setAttribute('bgColor', '#eeeeee');
+        child=table.rows[3+i].cells[6+j].querySelector('input');
+        child.style.backgroundColor = '#eeeeee';
+        table.rows[6+i].cells[3+j].setAttribute('bgColor', '#eeeeee');
+        child=table.rows[6+i].cells[3+j].querySelector('input');
+        child.style.backgroundColor = '#eeeeee';
+    }
+}
 
 
 function PrintProjection(){
