@@ -37,10 +37,6 @@ input {
 	color: blue;
 }
 
-/* input[type="text"], textarea {
-	background-color : #d1d1d1; 
-} */
-
 .buttons{
 	text-align: center;
     text-decoration: none;
@@ -101,20 +97,37 @@ body {
 	background:white;
 }
 
-@media (width <= 499px) {
-	input {
-		padding: 0; 
-		text-align: center;
-		border: 0 ;
-		height: 38px;
-		width: 38px;
-		text-align: center;
-		font-size: 30px;
-		color: blue;
+@media (width <=499px) {
+
+	table {
+		table-layout: fixed;
+		width: 98%;
 	}
-	td {
-		border: 1px solid grey;
-		height: 40px;
-		width: 40px;
+
+	td,
+	th {
+		width: 2%;
+		height: 36px;
+		border-collapse: collapse;
+		border-spacing: 0px;
+	}
+
+	input {
+		height: 36px;
+		width: 36px;
+	}
+
+	#clearButton {
+		left: 70%;
+		bottom: 5%;
+	}
+
+	#solveButton {
+		left: 30%;
+		bottom: 5%;
+	}
+
+	h1 {
+		font-size: 30px;
 	}
 }
