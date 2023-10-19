@@ -13,18 +13,18 @@ let Iter = 0;
 // painting grey color some fields (& some inputs)
 for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-        table.rows[0+i].cells[3+j].setAttribute('bgColor', '#eeeeee');
+        table.rows[0+i].cells[3+j].setAttribute('bgColor', '#dddddd');
         child=table.rows[0+i].cells[3+j].querySelector('input');
-        child.style.backgroundColor = '#eeeeee';
-        table.rows[3+i].cells[j].setAttribute('bgColor', '#eeeeee');
+        child.style.backgroundColor = '#dddddd';
+        table.rows[3+i].cells[j].setAttribute('bgColor', '#dddddd');
         child=table.rows[3+i].cells[j].querySelector('input');
-        child.style.backgroundColor = '#eeeeee';
-        table.rows[3+i].cells[6+j].setAttribute('bgColor', '#eeeeee');
+        child.style.backgroundColor = '#dddddd';
+        table.rows[3+i].cells[6+j].setAttribute('bgColor', '#dddddd');
         child=table.rows[3+i].cells[6+j].querySelector('input');
-        child.style.backgroundColor = '#eeeeee';
-        table.rows[6+i].cells[3+j].setAttribute('bgColor', '#eeeeee');
+        child.style.backgroundColor = '#dddddd';
+        table.rows[6+i].cells[3+j].setAttribute('bgColor', '#dddddd');
         child=table.rows[6+i].cells[3+j].querySelector('input');
-        child.style.backgroundColor = '#eeeeee';
+        child.style.backgroundColor = '#dddddd';
     }
 }
 
